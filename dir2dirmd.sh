@@ -64,10 +64,10 @@ do
 
 #echo          python3 ${BASE}/md_filter.py "${file}"  "$OUTPUTMD"
 
-          echo "- \[BACK\](autodoc.md)" > "$OUTPUTMD"
+          echo "- [BACK](autodoc.md)" > "$OUTPUTMD"
           python3 "${BASE}/md_filter.py" "${file}" >> "$OUTPUTMD"
           echo "___" >>  "$OUTPUTMD"
-          echo "- \[${file}\](${OUTPUTMD})" >> "$OUTPUT"
+          echo "- [${file}](${OUTPUTMD})" >> "$OUTPUT"
         fi
 done #/for file
 echo >>  "$OUTPUT"

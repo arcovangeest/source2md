@@ -60,4 +60,6 @@ Previously I used doxygen filters to create documentation from "non-code" files 
 unknown files are passed as a stream, it does not handle js, c or c++ yet. For larger C/C++ projects doxygen is a much better choice.
 
 ## Known issues
-The autodoc links only work in gitlab now.
+The autodoc links work different in gitlab/gitlab.
+
+@author is not replaced in gitlab

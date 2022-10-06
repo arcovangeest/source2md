@@ -1,4 +1,4 @@
-- \[BACK\](autodoc.md)
+- [BACK](autodoc.md)
 @file
 
  @brief Example SH

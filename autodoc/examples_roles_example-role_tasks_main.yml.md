@@ -1,4 +1,4 @@
-- \[BACK\](autodoc.md)
+- [BACK](autodoc.md)
  tasks file for example-role
 =========
 ### Show hello world ###

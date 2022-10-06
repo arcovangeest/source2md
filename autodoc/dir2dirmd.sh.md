@@ -1,4 +1,4 @@
-- \[BACK\](autodoc.md)
+- [BACK](autodoc.md)
 ## dir2dirmd.sh
 
  author Arco van Geest <d.a.c.vangeest@tudelft.nl>

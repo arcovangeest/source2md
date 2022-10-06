@@ -1,4 +1,4 @@
-- \[BACK\](autodoc.md)
+- [BACK](autodoc.md)
 ## role2md.sh
 
  @brief generate autodoc.md for ansible roles

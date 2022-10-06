@@ -1,4 +1,4 @@
-- \[BACK\](autodoc.md)
+- [BACK](autodoc.md)
 ## dir2md.sh
 
  @brief generate autodoc.md for Linux

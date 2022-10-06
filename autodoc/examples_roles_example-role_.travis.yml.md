@@ -1,2 +1,2 @@
-- \[BACK\](autodoc.md)
+- [BACK](autodoc.md)
 ___

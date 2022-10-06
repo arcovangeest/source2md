@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--- 
+ @ingroup examples
+ @file
+
+ @brief Voorbeeld XML
+ 
+ @version 1.0
+
+ @author Arco van Geest <d.a.c.vangeest@tudelft.nl>
+
+ @date 20160907 Ageest Eerste versie
+ 
+-->
+<xml>
+<!-- gewoon commentaar -->
+<!--- commentaar voor de documentatie -->
+<!--- 
+
+Het is mogelijk om delen buiten commetaar in de documentatie te krijgen
+
+-->
+
+<!--- @verbatim -->
+<naam>naam</naam>
+<!--- @endverbatim -->
+</xml>

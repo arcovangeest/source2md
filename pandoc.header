@@ -1,0 +1,214 @@
+<style>
+/*<![CDATA[*/
+<!-- 
+body {
+	margin: 1em;
+	padding: 1em;
+
+/*
+  no-font-family: verdana, helvetica, arial;
+  no-line-height: 1.625;
+//  font-height: 100; */
+}
+body:after{position:static;overflow:auto;display:block;width:0;height:0;visibility:hidden;opacity:0;background:red;speak: never}
+
+
+body{overflow-x:auto;font-family:Arial,sans-serif;font-weight:400;line-height:1.625;
+padding:0;
+margin:0;
+color:#222;background-color:#F7F7F7}
+
+body {
+	margin: 1em;
+	padding: 1em;
+}
+nobody {
+ /* //no-font-family: verdana, helvetica, arial;
+  //no-line-height: 1.625;
+//#  font-height: 100; */
+}
+
+
+        #htmlwarning{
+                margin: 20px;
+                padding:2px;
+                display: none;
+                border: 1px solid black;
+                background-color: yellow;
+        }
+
+        .error{
+                margin: 20px;
+                padding:2px;
+                border: 1px solid black;
+                background-color: red;
+        }
+
+        #htmldebug {
+                margin: 20px;
+                padding:2px;
+                display: none;
+                border: 1px dashed black;
+                background-color: #aaa;
+        }
+
+
+#myInput {
+  background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+  background-position: 10px 12px; /* Position the search icon */
+  background-repeat: no-repeat; /* Do not repeat the icon image */
+  width: 100%; /* Full-width */
+  font-size: 16px; /* Increase font-size */
+  padding: 12px 20px 12px 40px; /* Add some padding */
+  border: 1px solid #ddd; /* Add a grey border */
+  margin-bottom: 12px; /* Add some space below the input */
+}
+
+.table, #myTable {
+  border-collapse: collapse; /* Collapse borders */
+  width: 100%; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+/*  no-font-size: 18px;  Increase font-size */
+  margin:0;
+  padding: 0;
+}
+
+.tableauto {
+  border-collapse: collapse; /* Collapse borders */
+  width: auto; /* Full-width */
+  border: 1px solid #ddd; /* Add a grey border */
+/*  no-font-size: 18px;  Increase font-size */
+  margin:0;
+  padding: 0;
+}
+
+
+.table th,#myTable th {
+  text-align: left; /* Left-align text */
+  padding: 4px; /* Add padding */
+ /* no-background: #53a5d5; */
+  background-color:#00A6D6;
+  color: white;
+
+}
+.table td,#myTable td {
+  text-align: left; /* Left-align text */
+  padding: 4px; /* Add padding */
+  font-size: .8em;
+/*  //border: 1px solid red; */
+  margin:0;
+  padding: 0;
+  margin-left: 1ch;
+}
+
+.table tr,#myTable tr {
+  /* Add a bottom border to all table rows */
+  border-bottom: 1px solid #ddd;
+  margin:0;
+  padding: 0;
+}
+
+.table tr.header, .table tr:hover,#myTable tr.header, #myTable tr:hover {
+  /* Add a grey background color to the table header and on hover */
+  background-color: #00a6d6;
+}
+
+td a {color: #000;} 
+
+.grey { color: #999;background-color: #ccc; }
+.red { background-color: #e00; }
+.green { background-color: #090; }
+.orange { background-color: #990; }
+.normal { background-color: #fff; }
+
+form {
+  /* max-width: 100%; */
+
+}
+form.fullform {width: 100%;
+max-width: 100%;
+margin: 0;
+padding:0;
+ border: 1px solid grey; 
+}
+
+.debug { 
+border: 1px solid purple;
+margin-top: 60px;
+}
+
+.first_container {
+margin-top: 60px;
+
+}
+
+h3 { color:rgb(0,166,214);}
+.containerfull { /*nowidth: 100%; */
+margin-right: 1em;
+margin-left: 1em;
+
+
+}
+
+table td,table th{padding:1px 1px!important}
+
+td.nobreak {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/*
+td.long60 , td.long30{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+
+}
+*/
+th.long60 , td.long60 ,
+th.long30, td.long30,
+th.long20,td.long20 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+/*  no-display: inline-block; */
+}
+
+th.long60, td.long60 {
+  max-width: 60ch;
+}
+th.long30,td.long30{
+  max-width: 30ch;
+}
+
+th.long20,td.long20{
+  max-width: 20ch;
+}
+
+
+th.long60:hover, th.long30:hover ,td.long60:hover, td.long30:hover ,th.long20:hover,td.long20:hover {
+ overflow: visible;
+ white-space: normal;
+
+}
+th.long60 span,td.long60 span {
+}
+
+.table100 {width: 100%;
+max-width: 100%;
+margin: 0;
+padding:0; }
+
+
+td.seperator {
+border-right: 1px solid #999;
+
+}
+td.right,td.r,th.r { text-align: right;
+padding-right: 2em}
+input.text { display: block; min-width: 80em}
+
+
+-->
+/*]]>*/
+</style>

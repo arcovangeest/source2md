@@ -1,0 +1,18 @@
+---
+## tasks file for example-role
+## ========= 
+
+## ### Show hello world ###
+## - show hello
+- name: "hello word"
+  debug:
+    # this message is not shown in documentation
+    msg: "Hello world"
+
+## - show hello2
+- name: "hello word2"
+  debug:
+    # this message is not shown in documentation
+    msg: "Hello2"
+
+##

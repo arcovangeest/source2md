@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>autodoc</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <style>
+  /*<![CDATA[*/
+  <!-- 
+  body {
+  	margin: 1em;
+  	padding: 1em;
+  
+  /*
+    no-font-family: verdana, helvetica, arial;
+    no-line-height: 1.625;
+  //  font-height: 100; */
+  }
+  body:after{position:static;overflow:auto;display:block;width:0;height:0;visibility:hidden;opacity:0;background:red;speak: never}
+  
+  
+  body{overflow-x:auto;font-family:Arial,sans-serif;font-weight:400;line-height:1.625;
+  padding:0;
+  margin:0;
+  color:#222;background-color:#F7F7F7}
+  
+  body {
+  	margin: 1em;
+  	padding: 1em;
+  }
+  nobody {
+   /* //no-font-family: verdana, helvetica, arial;
+    //no-line-height: 1.625;
+  //#  font-height: 100; */
+  }
+  
+  
+          #htmlwarning{
+                  margin: 20px;
+                  padding:2px;
+                  display: none;
+                  border: 1px solid black;
+                  background-color: yellow;
+          }
+  
+          .error{
+                  margin: 20px;
+                  padding:2px;
+                  border: 1px solid black;
+                  background-color: red;
+          }
+  
+          #htmldebug {
+                  margin: 20px;
+                  padding:2px;
+                  display: none;
+                  border: 1px dashed black;
+                  background-color: #aaa;
+          }
+  
+  
+  #myInput {
+    background-image: url('/css/searchicon.png'); /* Add a search icon to input */
+    background-position: 10px 12px; /* Position the search icon */
+    background-repeat: no-repeat; /* Do not repeat the icon image */
+    width: 100%; /* Full-width */
+    font-size: 16px; /* Increase font-size */
+    padding: 12px 20px 12px 40px; /* Add some padding */
+    border: 1px solid #ddd; /* Add a grey border */
+    margin-bottom: 12px; /* Add some space below the input */
+  }
+  
+  .table, #myTable {
+    border-collapse: collapse; /* Collapse borders */
+    width: 100%; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+  /*  no-font-size: 18px;  Increase font-size */
+    margin:0;
+    padding: 0;
+  }
+  
+  .tableauto {
+    border-collapse: collapse; /* Collapse borders */
+    width: auto; /* Full-width */
+    border: 1px solid #ddd; /* Add a grey border */
+  /*  no-font-size: 18px;  Increase font-size */
+    margin:0;
+    padding: 0;
+  }
+  
+  
+  .table th,#myTable th {
+    text-align: left; /* Left-align text */
+    padding: 4px; /* Add padding */
+   /* no-background: #53a5d5; */
+    background-color:#00A6D6;
+    color: white;
+  
+  }
+  .table td,#myTable td {
+    text-align: left; /* Left-align text */
+    padding: 4px; /* Add padding */
+    font-size: .8em;
+  /*  //border: 1px solid red; */
+    margin:0;
+    padding: 0;
+    margin-left: 1ch;
+  }
+  
+  .table tr,#myTable tr {
+    /* Add a bottom border to all table rows */
+    border-bottom: 1px solid #ddd;
+    margin:0;
+    padding: 0;
+  }
+  
+  .table tr.header, .table tr:hover,#myTable tr.header, #myTable tr:hover {
+    /* Add a grey background color to the table header and on hover */
+    background-color: #00a6d6;
+  }
+  
+  td a {color: #000;} 
+  
+  .grey { color: #999;background-color: #ccc; }
+  .red { background-color: #e00; }
+  .green { background-color: #090; }
+  .orange { background-color: #990; }
+  .normal { background-color: #fff; }
+  
+  form {
+    /* max-width: 100%; */
+  
+  }
+  form.fullform {width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding:0;
+   border: 1px solid grey; 
+  }
+  
+  .debug { 
+  border: 1px solid purple;
+  margin-top: 60px;
+  }
+  
+  .first_container {
+  margin-top: 60px;
+  
+  }
+  
+  h3 { color:rgb(0,166,214);}
+  .containerfull { /*nowidth: 100%; */
+  margin-right: 1em;
+  margin-left: 1em;
+  
+  
+  }
+  
+  table td,table th{padding:1px 1px!important}
+  
+  td.nobreak {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  /*
+  td.long60 , td.long30{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  
+  }
+  */
+  th.long60 , td.long60 ,
+  th.long30, td.long30,
+  th.long20,td.long20 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  /*  no-display: inline-block; */
+  }
+  
+  th.long60, td.long60 {
+    max-width: 60ch;
+  }
+  th.long30,td.long30{
+    max-width: 30ch;
+  }
+  
+  th.long20,td.long20{
+    max-width: 20ch;
+  }
+  
+  
+  th.long60:hover, th.long30:hover ,td.long60:hover, td.long30:hover ,th.long20:hover,td.long20:hover {
+   overflow: visible;
+   white-space: normal;
+  
+  }
+  th.long60 span,td.long60 span {
+  }
+  
+  .table100 {width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding:0; }
+  
+  
+  td.seperator {
+  border-right: 1px solid #999;
+  
+  }
+  td.right,td.r,th.r { text-align: right;
+  padding-right: 2em}
+  input.text { display: block; min-width: 80em}
+  
+  
+  -->
+  /*]]>*/
+  </style>
+</head>
+<body>
+<h1 id="source-to-md">Source to MD</h1>
+<ul>
+<li>[./autodoc.md](autodoc.md)</li>
+</ul>
+<p>This scriptset creates automatic documentation from several types of scripts and configs.</p>
+<p>There are several usages: - create a single auto.md file from all files - create a directory with a md file per file - create autodoc.md for ansible roles</p>
+<p>The main scripts are: - [./dir2dirmd.sh](autodoc/dir2dirmd.sh.md) - [./dir2md.sh](autodoc/dir2md.sh.md) - [./role2md.sh](autodoc/role2md.sh.md)</p>
+<p>The filter script is: - [./md_filter.py](autodoc/md_filter.py.md)</p>
+<h2 id="usage">Usage</h2>
+<h3 id="role-source-to-autodoc.md">role source to autodoc.md</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="bu">cd</span> to role directory</a>
+<a class="sourceLine" id="cb1-2" title="2"><span class="ex">start</span> /PathTo/role2md.sh</a></code></pre></div>
+<p>output goes to autodoc.md in current directory</p>
+<h3 id="directory-to-single-autodoc.md">directory to single autodoc.md</h3>
+<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="bu">cd</span> to source directory</a>
+<a class="sourceLine" id="cb2-2" title="2"><span class="ex">start</span> /PathTo/dir2md.sh</a></code></pre></div>
+<p>output goes to autodoc.md in current directory</p>
+<p>If pandoc exists also an autodoc.html is created</p>
+<h3 id="directory-to-autodoc-directory">directory to autodoc directory</h3>
+<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="bu">cd</span> to source directory</a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="ex">start</span> /PathTo/dir2dirmd.sh</a></code></pre></div>
+<p>index goes to autodoc.md in current directory and a md-file is created per file in autodoc.</p>
+<h2 id="why">Why</h2>
+<p>Previously I used doxygen filters to create documentation from “non-code” files like sql and shell. This is an easier way for me to create documentation without having a large setup.</p>
+<h2 id="todo">Todo</h2>
+<p>unknown files are passed as a stream, it does not handle c or c++ yet. For larger C/C++ projects doxygen is a much better choice. ## dir2md.sh</p>
+<p>author Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<h4 id="changelog">Changelog</h4>
+<p>20201001 Ageest initial version 20210114 AGeest links to roles</p>
+<p>Roles</p>
+<ul>
+<li>Get readme from role</li>
+<li>show role name parse script files with the extensions: .yml<span class="math inline">|.<em>y</em><em>a</em><em>m</em><em>l</em></span>|.j2<span class="math inline">|.<em>s</em><em>h</em></span>|.php<span class="math inline">|.<em>p</em><em>l</em></span>|.py<span class="math inline">|.<em>s</em><em>q</em><em>l</em></span>|.ps1<span class="math inline">|.<em>x</em><em>m</em><em>l</em></span>|.cmd<span class="math inline">|.<em>j</em><em>s</em></span>|.pp<span class="math inline">|.<em>c</em><em>f</em><em>g</em></span></li>
+</ul>
+<p>md_filter.py is used in creating the md.</p>
+<p>all md is placed in autodoc</p>
+<p>an index is created in autodoc.md</p>
+<p><span class="citation" data-cites="file">@file</span></p>
+<p><span class="citation" data-cites="brief">@brief</span> generate autodoc.md for Linux</p>
+<p><span class="citation" data-cites="author">@author</span> Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<p><span class="citation" data-cites="date">@date</span> 20201001 Ageest initial version</p>
+<p><span class="citation" data-cites="file">@file</span></p>
+<p><span class="citation" data-cites="brief">@brief</span> Example (ansible) YAML</p>
+<pre><code>There is no support for yaml so all style elements should be created.</code></pre>
+<p><span class="citation" data-cites="version">@version</span> 1.0</p>
+<p><span class="citation" data-cites="author">@author</span> Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<p><span class="citation" data-cites="date">@date</span> 20190909 first version</p>
+<h1 id="hello-world-playbook">Hello world playbook</h1>
+<p>This playbook is used to show the use of doxygen linebreaks are ignored unless \n is used</p>
+<h2 id="tasks">tasks</h2>
+<h3 id="show-hello-world">Show hello world</h3>
+<p>task to show hello</p>
+<p><span class="citation" data-cites="file">@file</span></p>
+<p><span class="citation" data-cites="brief">@brief</span> Example SH</p>
+<p><span class="citation" data-cites="version">@version</span> 1.0</p>
+<p><span class="citation" data-cites="author">@author</span> Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<p><span class="citation" data-cites="date">@date</span> 20190906 first version</p>
+<p>Example documentation function bash_function ——- filter has no support for functions create all text yourself parameter - value returns - value</p>
+<p>echo “This command is shown in the documentation”</p>
+<p><span class="citation" data-cites="ingroup">@ingroup</span> examples <span class="citation" data-cites="file">@file</span></p>
+<p><span class="citation" data-cites="brief">@brief</span> Example CFG</p>
+<p><span class="citation" data-cites="version">@version</span> 1.0</p>
+<p><span class="citation" data-cites="author">@author</span> Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<p><span class="citation" data-cites="date">@date</span> 20160907 Ageest Eerste versie</p>
+<p>Example documentation this is added to the documentation</p>
+<p>end <span class="citation" data-cites="ingroup">@ingroup</span> examples <span class="citation" data-cites="file">@file</span></p>
+<p><span class="citation" data-cites="brief">@brief</span> Voorbeeld CMD</p>
+<p><span class="citation" data-cites="version">@version</span> 1.0</p>
+<p><span class="citation" data-cites="author">@author</span> Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<p><span class="citation" data-cites="date">@date</span> 20160907 Ageest Eerste versie</p>
+<p>Voorbeeld cmd file /** <span class="citation" data-cites="ingroup">@ingroup</span> examples <span class="citation" data-cites="file">@file</span></p>
+<p><span class="citation" data-cites="brief">@brief</span> Voorbeeld javascript</p>
+<p><span class="citation" data-cites="version">@version</span> 1.0</p>
+<p><span class="citation" data-cites="author">@author</span> Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<p><span class="citation" data-cites="date">@date</span> 20160908 Ageest Eerste versie</p>
+<p>Voorbeeld documentatie */</p>
+<p>/<em>! </em> Send hello to user * Document the static method for the Definitions class * string Hello(naam) * string naam Users name * none */ function Hello( naam ) { alert(“Hello”+naam); }</p>
+<p>Hello(“Gebruiker”); documentatie ____ of anders…</p>
+<p>[string]$naam - te begroeten naam</p>
+<p>let wel op de lege regels, anders is er geen line break <span class="citation" data-cites="ingroup">@ingroup</span> examples <span class="citation" data-cites="file">@file</span></p>
+<p><span class="citation" data-cites="author">@author</span> Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<p><span class="citation" data-cites="brief">@brief</span> test puppet manifest</p>
+<p><span class="citation" data-cites="version">@version</span> 20150330</p>
+<p><span class="citation" data-cites="date">@date</span> - 20150330 Ageest initiele versie</p>
+<p>Dit is een voorbeeld manifest met de volgende opties: - forceer file /tmp/test1 - forceer dir /tmp/test2 - forceer link /tmp/test3 notify user</p>
+<pre><code>notify {&quot;I&#39;m notifying you.&quot;:}
+notify {&quot;So am I!&quot;:}</code></pre>
+<p><span class="citation" data-cites="ingroup">@ingroup</span> examples <span class="citation" data-cites="file">@file</span></p>
+<p><span class="citation" data-cites="brief">@brief</span> Voorbeeld SQL</p>
+<p><span class="citation" data-cites="version">@version</span> 1.0</p>
+<p><span class="citation" data-cites="author">@author</span> Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<p><span class="citation" data-cites="date">@date</span> 20160907 Ageest Eerste versie</p>
+<p>example documentation</p>
+<p>Empty lines are needed if you want a neq paragraph It is possible to include complete code</p>
+<p>Select name from users;</p>
+<h1 id="procedure-testdox">Procedure testDox</h1>
+<p>para nvarchar(50) - zoekterm</p>
+<p><span class="citation" data-cites="ingroup">@ingroup</span> examples <span class="citation" data-cites="file">@file</span></p>
+<p><span class="citation" data-cites="brief">@brief</span> Voorbeeld XML</p>
+<p><span class="citation" data-cites="version">@version</span> 1.0</p>
+<p><span class="citation" data-cites="author">@author</span> Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<p><span class="citation" data-cites="date">@date</span> 20160907 Ageest Eerste versie</p>
+<p>commentaar voor de documentatie</p>
+<p>Het is mogelijk om delen buiten commetaar in de documentatie te krijgen</p>
+<p><naam>naam</naam> <span class="citation" data-cites="file">@file</span></p>
+<p><span class="citation" data-cites="brief">@brief</span> MD filter</p>
+<p><span class="citation" data-cites="author">@author</span> Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<p><span class="citation" data-cites="date">@date</span> 20190906 first version</p>
+<p>grab marked MD lines from source and output md to stdout</p>
+<p>Depending on the extention a filter is used: ```</p>
+<pre><code>&#39;php&#39;: filter_shell,
+&#39;cfg&#39;: filter_cfg,
+&#39;cmd&#39;: filter_cmd,
+&#39;Dockerfile&#39;: filter_cfg,
+&#39;sh&#39;: filter_shell,
+&#39;awk&#39;: filter_cfg,
+&#39;add&#39;: filter_cfg,
+&#39;conf&#39;: filter_cfg,
+&#39;dox&#39;: filter_default,
+&#39;ps1&#39;: filter_cfg,
+&#39;pl&#39;: filter_cfg,
+&#39;xml&#39;: filter_xml,
+&#39;xslt&#39;: filter_xml,
+&#39;html&#39;: filter_xml,
+&#39;ini&#39;: filter_ini,
+&#39;pp&#39;: filter_cfg,
+&#39;sql&#39;: filter_sql,
+&#39;c&#39;: filter_default,
+&#39;h&#39;: filter_default,
+&#39;cpp&#39;: filter_default,
+&#39;md&#39;: filter_default,
+&#39;py&#39;: filter_shell,
+&#39;yaml&#39;: filter_cfg,
+&#39;yml&#39;: filter_cfg,
+&#39;au3&#39;: filter_cfg,
+&#39;ipxe&#39;: filter_cfg</code></pre>
+<p>```</p>
+<h4 id="filter_shell">filter_shell</h4>
+<p>filter shell to md</p>
+<p>lines starting with the magic ‘##’ will be shown.</p>
+<p>lines between the magics ‘(at)verbatim’ and ‘(at)endverbatim’ will be shown.</p>
+<p>lines between the magics ‘## SKIP_START’ and ‘## SKIP_END’ will be skipped.</p>
+<h4 id="filter_cmd">filter_cmd</h4>
+<p>filter cmd to md</p>
+<p>lines starting with the magic ‘::!’ will be shown.</p>
+<p>lines between the magics ‘(at)verbatim’ and ‘(at)endverbatim’ will be shown.</p>
+<p>lines between the magics ‘::! SKIP_START’ and ‘::! SKIP_END’ will be skipped.</p>
+<h4 id="filter_cfg">filter_cfg</h4>
+<p>filter cfg to md</p>
+<p>lines starting with the magic ‘##’ will be shown.</p>
+<p>lines between the magics ‘(at)verbatim’ and ‘(at)endverbatim’ will be shown.</p>
+<p>lines between the magics ‘## SKIP_START’ and ‘## SKIP_END’ will be skipped.</p>
+<h4 id="filter_xml">filter_xml</h4>
+<p>filter xml to md</p>
+<p>lines starting with the magic ‘<!---' will be shown until the first '-->’.</p>
+<p>lines between the magics ‘(at)verbatim’ and ‘(at)endverbatim’ will be shown.</p>
+<p>lines between the magics ‘&lt;!— SKIP_START’ and ‘&lt;!— SKIP_END’ will be skipped.</p>
+<h4 id="filter_ini">filter_ini</h4>
+<p>filter ini to md</p>
+<p>lines starting with the magic ‘;;’ will be shown.</p>
+<p>lines between the magics ‘(at)verbatim’ and ‘(at)endverbatim’ will be shown.</p>
+<p>lines between the magics ‘;; SKIP_START’ and ‘;; SKIP_END’ will be skipped.</p>
+<p>section headers [name] wil result in a section header</p>
+<p>section name s</p>
+<h4 id="filter_sql">filter_sql</h4>
+<p>filter sql to md</p>
+<p>lines starting with the magic ‘–!’ will be shown.</p>
+<p>lines between the magics ‘(at)verbatim’ and ‘(at)endverbatim’ will be shown.</p>
+<p>lines between the magics ‘–! SKIP_START’ and ‘–! SKIP_END’ will be skipped.</p>
+<h4 id="filter_default">filter_default</h4>
+<p>pass though filter</p>
+<p>just read and output data</p>
+<p><span class="citation" data-cites="file">@file</span></p>
+<p><span class="citation" data-cites="brief">@brief</span> generate autodoc.md for Linux</p>
+<p><span class="citation" data-cites="author">@author</span> Arco van Geest <a href="mailto:d.a.c.vangeest@tudelft.nl" class="email">d.a.c.vangeest@tudelft.nl</a></p>
+<p><span class="citation" data-cites="date">@date</span> 20201001 Ageest initiele versie</p>
+</body>
+</html>
